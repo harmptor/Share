@@ -6,7 +6,7 @@
 consisting of HA:
 
 | # | Home Assistant |
-| -- | -- |
+| --: | -- |
 | **7917** | **Total**
 | 3435 | [automations.yaml](./automations.yaml)
 | 1825 | [scripts.yaml](./scripts.yaml)
@@ -37,7 +37,7 @@ consisting of HA:
 and ESPHome:
 
 | # | ESPHome |
-| -- | -- |
+| --: | -- |
 | **2591** | **Total**
 | 572 | [gerald.yaml](./esphome/gerald.yaml)
 | 274 | [cora.yaml](./esphome/cora.yaml)
@@ -62,7 +62,7 @@ and ESPHome:
 # Stackoverflow
 <table>
 <tr><th>Table 1 Heading 1 </th><th>Table 1 Heading 2</th></tr>
-<tr><td>
+<tr valign="top"><td>
 
 | # | Home Assistant |
 | -- | -- |
@@ -96,7 +96,7 @@ and ESPHome:
 </td><td>
 
 | # | ESPHome |
-| -- | -- |
+| --: | -- |
 | **2591** | **Total**
 | 572 | [gerald.yaml](./esphome/gerald.yaml)
 | 274 | [cora.yaml](./esphome/cora.yaml)
@@ -120,8 +120,3 @@ and ESPHome:
 
 </td></tr> </table>
 
-## fukd
-
-|Table 1|Table 2|
-|--|--|
-|<table> <tr><th>Table 1 Heading 1</th><th>Table 1 Heading 2</th></tr><tr><td>Row 1 Column 1</td><td>Row 1 Column 2</td></tr><tr><td>Row 2 Column 1</td><td>Row 2 Column 2</td></tr> </table>| <table> <tr><th>Table 2 Heading 1</th><th>Table 2 Heading 2</th></tr><tr><td>Row 1 Column 1</td><td>Row 1 Column 2</td></tr> </table>|
