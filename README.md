@@ -1,4 +1,4 @@
 # Share
 share
 
-this is [Gustav](./gustav.yaml)
+this is [](./gustav.yaml)
