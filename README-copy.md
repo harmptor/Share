@@ -1,13 +1,13 @@
 # Share: 
- December 2022
+<p align=right> December 2022 </p>
 
-## Total lines of code: 174
+## Total lines of code: 10485
 
 <table>
-<tr valign=top><td>
+<tr valign="top"><td>
 
 | # | Home Assistant |
-| --: | -- |
+| -- | -- |
 | **7917** | **Total**
 | 3435 | [automations.yaml](./automations.yaml)
 | 1825 | [scripts.yaml](./scripts.yaml)
@@ -34,7 +34,6 @@
 | 6 | [groups.yaml](./groups.yaml)
 | 5 | [rest_command.yaml](./rest_command.yaml)
 | 5 | [counter.yaml](./counter.yaml)
-
 
 </td><td>
 
