@@ -54,7 +54,7 @@ where `$(date + "")` renders current date in format given by `$1` or the default
 ```
 finds all files in `.` (here)
 
-max depth means only subdirs of that depth. I want files of current dir and one dir below (i.e. esphome)
+max depth means only include subdirs of that depth max. I want files of current dir and one dir below (i.e. esphome)
 
 `-name` specifies the file name
 
@@ -76,7 +76,7 @@ all that is piped via `cat` to `wc -l` which counts the total number of lines in
 <details><summary>Line 3: echo »</summary>
 <p>
 
-#### We want two tables, HA and ESPHome, nested inside one bigger table.
+#### We want two tables, HA and ESPHome, nested inside one larger table.
 Tables in markdown look like this:
 ```
 |  Title1  | Title2 |
@@ -122,7 +122,7 @@ find . -maxdepth 1 -name '*.yaml' | xargs wc -l | sort -nr >> README.md
 ```
 pretty self explanatory, finds files, counts lines, sorts numerically, writes
 
-For reference, find's normal output looks like this:
+For reference, find's regular console output looks like this:
 ```
 User@DESKTOP: /home/config $ find . -maxdepth 1 -name '*.yaml' | xargs wc -l | sort -nr
   7934 total
@@ -164,7 +164,7 @@ same shit again, prints
 find ./esphome -maxdepth 2 -name '*.yaml' | xargs wc -l | sort -nr >> README.md
 ```
 
-again, self explanatory, finds files in subdir `esphome/ ` 
+again, self explanatory, finds files in subdir `esphome/` and **one** layer of subdirs, i.e. `esphome/common/` 
 
 stdout is:
 
@@ -203,13 +203,15 @@ bruh
 <details><summary>Line 8: sed</summary>
 <p>
 
-Sed enables regex operations on files. Usually sed outputs to stdout, but
+# sed
+
+sed enables regex operations on files. Usually sed outputs to stdout, but
 
 flag `-i` makes it write to the file it is reading from
 
 falg `-E` enables extended patterns, used for grouping patterns with `(...)` and later referring to them with `\1` etc.
 
-flag `-e` is just an identifyer of a regex pattern we wanna apply. We use it three times
+flag `-e` is just an identifyer of a regex pattern we wanna apply. We're using it it three times
 
 ```bash
 sed -i -E 
@@ -220,7 +222,16 @@ sed -i -E
 
 We want to replace text (`s`), so we use `-e "s/ search_pattern / replace_with /"`
 
-## First pattern: Place links to the files
+<br/>
+
+### First pattern: Place links to the files
+
+```bash
+-e "s/(\s*)([0-9]{1,5}) (\.\/)(\w*\/)?(\w*\/)?(\w*\/)?(\w*\/)?(.*\.yaml)/\1\2 [\5\6\7\8](\3\4\5\6\7\8)/" 
+```
+
+<details><summary>Unfold</summary>
+<p>
 
 We can place links using this syntax: `[prettyname](link/to/file)`
 
@@ -268,7 +279,20 @@ translates to:
 </p>
 </details>
 
-## Second pattern. Put pipes around line numbers
+
+</p>
+</details>
+
+<br/>
+
+### Second pattern. Put pipes around line numbers
+
+```bash
+-e "s/(\s{2,10})([0-9]{1,5})/| \2 |/" 
+```
+
+<details><summary>Unfold</summary>
+<p>
 
 Replace `(\s{2,10})([0-9]{1,5})` with `| \2 |`
 
@@ -281,14 +305,30 @@ Look rn:
 | 1825 | [scripts.yaml](./scripts.yaml)
 ```
 
-## Third pattern. Make the totals bold face
+</p>
+</details>
 
-> `s/\| ([0-9]*) \| total/\| \*\*\1\*\* \| \*\*Total\*\*/`
+<br/>
+
+### Third pattern. Make the totals bold face
+
+```bash
+-e "s/\| ([0-9]*) \| total/\| \*\*\1\*\* \| \*\*Total\*\*/"
+```
+
+<details><summary>Unfold</summary>
+<p>
 
 Replace `\| ([0-9]*) \| total` with `\| \*\*\1\*\* \| \*\*Total\*\*`
 
 Find text `| xxxx | total` and put \*\*s around. We need to escape all asterisks because else they'd be quantifiers, obv. 
 
+
+</p>
+</details>
+
+
+<br/>
 
 ## We're done. The document should now look like this:
 
@@ -373,6 +413,15 @@ Find text `| xxxx | total` and put \*\*s around. We need to escape all asterisks
 </details>
 
 <pre>
+
+
+
+
+
+
+
+
+
 
 
 
