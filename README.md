@@ -35,7 +35,12 @@ where `$(date + "")` renders current date in format given by `$1` or the default
 
 (`$1` is BLABLA when executing `user@device: /home/ $ makereadme.sh BLABLA`)
 
+```
+# Powl's Home Assistant configuration: 
+<p align="right"> 2023.01.01 13:37:00 </p>
 
+## Total lines of code:
+```
 
 </p>
 </details>
@@ -49,20 +54,20 @@ where `$(date + "")` renders current date in format given by `$1` or the default
 ```
 finds all files in `.` (here)
 
- max depth means only subdirs of that depth. I want files of current dir and one dir below (i.e. esphome)
+max depth means only subdirs of that depth. I want files of current dir and one dir below (i.e. esphome)
 
- `-name` specifies the file name
+`-name` specifies the file name
 
- `-print0` means don't print to stdout I guess lol
+`-print0` means don't print to stdout I guess lol
 
- all that is piped via `cat` to `wc -l` which counts the total number of lines in all files that were found.
+all that is piped via `cat` to `wc -l` which counts the total number of lines in all files that were found.
 
-  ```
-  # Powl's Home Assistant configuration: 
-  <p align="right"> $(date +"${1:-%Y.%m.%d %H:%M:%S}") </p>
+```
+# Powl's Home Assistant configuration: 
+<p align="right"> 2023.01.01 13:37:00 </p>
 
-  ## Total lines of code: 10486
-  ```
+## Total lines of code: 10486
+```
 
 </p>
 </details>
@@ -238,9 +243,9 @@ with `\1\2 [\5\6\7\8](\3\4\5\6\7\8)`
 
 `\4,\5,\6,\7` *can* contain `\w*\/` (quantified by ?, so either 0 or 1 occurance) which means an arbitrary amount of word chars, followed by a forwardslash. This is all subdirectories, **if there are any**.
 
-finally, `\8` contains `.*\.yaml` which is any amount of any character followed by `.yaml` The filename.
+finally, `\8` contains `.*\.yaml` which is any amount of any character followed by `.yaml` = The filename.
 
-After this, our text looks like this
+After that, our text looks like this
 
 ```
   7918 total
@@ -254,6 +259,7 @@ We don't want `\3\4` (`./` and `esphome/`) but do wan't `\5\6\7`, because those 
 <p>
 
 ```
+ 7918 total
     1 ./esphome/common/build_path.yaml 
 translates to:
     1 [common/build_path.yaml](./esphome/common/build_path.yaml)
@@ -275,7 +281,7 @@ Look rn:
 | 1825 | [scripts.yaml](./scripts.yaml)
 ```
 
-## Third pattern. Make the titles bold face
+## Third pattern. Make the totals bold face
 
 > `s/\| ([0-9]*) \| total/\| \*\*\1\*\* \| \*\*Total\*\*/`
 
@@ -365,3 +371,41 @@ Find text `| xxxx | total` and put \*\*s around. We need to escape all asterisks
 
 </p>
 </details>
+
+<pre>
+
+
+
+
+
+
+
+borgir
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+added blank space to avoid excrutiatingly painful, brain damaging section unfolding
+</pre>
