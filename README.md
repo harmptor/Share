@@ -3,7 +3,6 @@
 
 ```bash
 #!/bin/bash
-cd /config
 echo -ne "# Powl's Home Assistant configuration: \n<p align="right"> $(date +"${1:-%Y.%m.%d %H:%M:%S}") </p>\n\n## Total lines of code: " > README.md 
 ( find . -maxdepth 2 -name '*.yaml' -print0 | xargs -0 cat ) | wc -l >> README.md
 echo -e "\n<table>\n<tr valign="top"><td>\n\n| # | HA |\n| --: | -- |" >> README.md
@@ -68,7 +67,7 @@ finds all files in `.` (here)
 </details>
 
 
-<details><summary>Line 3: echo</summary>
+<details><summary>Line 3: echo >></summary>
 <p>
 
 ### We want two tables, HA and ESPHome, nested inside one bigger table.
@@ -131,7 +130,7 @@ etc...
 </p>
 </details>
 
-<details><summary>Line 5: echo</summary>
+<details><summary>Line 5: echo >></summary>
 <p>
 
 ```bash
@@ -176,7 +175,7 @@ etc...
 </p>
 </details>
 
-<details><summary>Line 7: echo </summary>
+<details><summary>Line 7: echo >></summary>
 <p>
 
 ```bash
