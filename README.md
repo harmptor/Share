@@ -22,10 +22,10 @@ echoes the strin and writes to README.md
 
 flag `-e` means `\n` is expanded to a newline character instead of being literally printed
 
-flag `-n` means no trailing new line.
+flag `-n` means no trailing new line. We want the following number on the same line
 
 resulting in
-```
+```bash
 # Powl's Home Assistant configuration: 
 <p align="right"> $(date +"${1:-%Y.%m.%d %H:%M:%S}") </p>
 
@@ -35,12 +35,6 @@ where `$(date + "")` renders current date in format given by `$1` or the default
 
 (`$1` is BLABLA when executing `user@device: /home/ $ makereadme.sh BLABLA`)
 
-Resulting in:
-
-# Powl's Home Assistant configuration: 
-<p align="right"> 2023.01.01 13:37:00 </p>
-
-## Total lines of code: 
 
 
 </p>
@@ -62,7 +56,14 @@ finds all files in `.` (here)
  `-print0` means don't print to stdout I guess lol
 
  all that is piped via `cat` to `wc -l` which counts the total number of lines in all files that were found.
- 
+
+  ```
+  # Powl's Home Assistant configuration: 
+  <p align="right"> $(date +"${1:-%Y.%m.%d %H:%M:%S}") </p>
+
+  ## Total lines of code: 10486
+  ```
+
 </p>
 </details>
 
@@ -70,7 +71,7 @@ finds all files in `.` (here)
 <details><summary>Line 3: echo »</summary>
 <p>
 
-### We want two tables, HA and ESPHome, nested inside one bigger table.
+#### We want two tables, HA and ESPHome, nested inside one bigger table.
 Tables in markdown look like this:
 ```
 |  Title1  | Title2 |
@@ -101,7 +102,7 @@ resulting in
 <tr valign="top"><td>
 
 |  #  | HA |
-| --: | -- |  <-- left column is now right aligned
+| --: | -- |  <-- left column is now right-aligned
 ```
 </p>
 </details>
@@ -116,7 +117,7 @@ find . -maxdepth 1 -name '*.yaml' | xargs wc -l | sort -nr >> README.md
 ```
 pretty self explanatory, finds files, counts lines, sorts numerically, writes
 
-find's normal output looks like this:
+For reference, find's normal output looks like this:
 ```
 User@DESKTOP: /home/config $ find . -maxdepth 1 -name '*.yaml' | xargs wc -l | sort -nr
   7934 total
@@ -282,6 +283,85 @@ Replace `\| ([0-9]*) \| total` with `\| \*\*\1\*\* \| \*\*Total\*\*`
 
 Find text `| xxxx | total` and put \*\*s around. We need to escape all asterisks because else they'd be quantifiers, obv. 
 
+
+## We're done. The document should now look like this:
+
+
+<details><summary>Raw</summary>
+<p>
+
+```
+# Powl's Home Assistant configuration: 
+<p align="right"> 2023.01.01 13:37:00 </p>
+
+## Total lines of code: 10486
+
+<table>
+<tr valign=top><td>
+
+| # | Home Assistant |
+| --: | -- |
+| **7918** | **Total**
+| 3435 | [automations.yaml](./automations.yaml)
+| 1825 | [scripts.yaml](./scripts.yaml)
+| 802 | [automations-telegram.yaml](./automations-telegram.yaml)
+ «redacted»
+| 5 | [counter.yaml](./counter.yaml)
+
+</td><td>
+
+| # | ESPHome |
+| --: | -- |
+| **2591** | **Total**
+| 572 | [gerald.yaml](./esphome/gerald.yaml)
+| 274 | [cora.yaml](./esphome/cora.yaml)
+ «redacted»
+| 13 | [common/nuki_dev.yaml](./esphome/common/nuki_dev.yaml)
+| 9 | [common/nuki.yaml](./esphome/common/nuki.yaml)
+| 1 | [common/build_path.yaml](./esphome/common/build_path.yaml)
+
+</td></tr> </table>
+```
+  </p>
+  </details>
+
+
+<details><summary>Formatted</summary>
+<p>
+
+# Powl's Home Assistant configuration: 
+<p align="right"> 2023.01.01 13:37:00 </p>
+
+## Total lines of code: 10486
+
+<table>
+<tr valign=top><td>
+
+| # | Home Assistant |
+| --: | -- |
+| **7918** | **Total**
+| 3435 | [automations.yaml](./automations.yaml)
+| 1825 | [scripts.yaml](./scripts.yaml)
+| 802 | [automations-telegram.yaml](./automations-telegram.yaml)
+«redacted»
+| 5 | [counter.yaml](./counter.yaml)
+
+</td><td>
+
+| # | ESPHome |
+| --: | -- |
+| **2591** | **Total**
+| 572 | [gerald.yaml](./esphome/gerald.yaml)
+| 274 | [cora.yaml](./esphome/cora.yaml)
+«redacted»
+| 13 | [common/nuki_dev.yaml](./esphome/common/nuki_dev.yaml)
+| 9 | [common/nuki.yaml](./esphome/common/nuki.yaml)
+| 1 | [common/build_path.yaml](./esphome/common/build_path.yaml)
+
+</td></tr> </table>
+
+</p>
+</details>
 
 </p>
 </details>
