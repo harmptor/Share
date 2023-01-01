@@ -1,5 +1,5 @@
 # PROBL
-<p align=right> 2023.01.01 19:52 </p>
+<p align=right> 2023.01.01 20:33 </p>
 
 ### [makereadme.sh](./makereadme.sh)
 
@@ -333,7 +333,13 @@ Find text `| xxxx | total` and put \*\*s around. We need to escape all asterisks
 
 <br/>
 
-## We're done. The document should now look like this:
+
+</p>
+</details>
+
+<br/>
+
+## Eventually the document should look like this:
 
 
 <details><summary>Raw</summary>
@@ -414,9 +420,6 @@ Find text `| xxxx | total` and put \*\*s around. We need to escape all asterisks
 
 Thank you for coming to my ted talk
 
-</p>
-</details>
-
 <pre>
 
 
@@ -434,9 +437,9 @@ Thank you for coming to my ted talk
 
 
 
+
+
 PROBL
-
-
 
 
 
