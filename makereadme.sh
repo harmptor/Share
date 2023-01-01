@@ -1,5 +1,4 @@
 #!/bin/bash
-cd /config
 echo -ne "# Powl's Home Assistant configuration: \n<p align="right"> $(date +"${1:-%Y.%m.%d %H:%M:%S}") </p>\n\n## Total lines of code: " > README.md 
 ( find . -maxdepth 2 -name '*.yaml' -print0 | xargs -0 cat ) | wc -l >> README.md
 echo -e "\n<table>\n<tr valign="top"><td>\n\n| # | Home Assistant |\n| --: | -- |" >> README.md

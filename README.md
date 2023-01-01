@@ -1,5 +1,7 @@
-# Share:
-<p align=right> 2022.12.31 17:43:51 </p>
+# PROBL
+<p align=right> 2023.01.01 19:52 </p>
+
+### [makereadme.sh](./makereadme.sh)
 
 ```bash
 #!/bin/bash
@@ -31,9 +33,9 @@ resulting in
 
 ## Total lines of code: 
 ```
-where `$(date + "")` renders current date in format given by `$1` or the default `%Y.%m.%d %H:%M:%S` if none given. 
+where `$(date + "")` renders current date in the format given. Here `$1` or the default `%Y.%m.%d %H:%M:%S` if no argument is passed. 
 
-(`$1` is BLABLA when executing `user@device: /home/ $ makereadme.sh BLABLA`)
+(`$1` is the first argument passed when the script is being executed, i.e. BLABLA when executing `user@device: /home/ $ makereadme.sh BLABLA`)
 
 ```
 # Powl's Home Assistant configuration: 
@@ -429,13 +431,7 @@ Find text `| xxxx | total` and put \*\*s around. We need to escape all asterisks
 
 
 
-borgir
-
-
-
-
-
-
+PROBL
 
 
 
