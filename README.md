@@ -12,7 +12,7 @@ find ./esphome -maxdepth 2 -name '*.yaml' | xargs wc -l | sort -nr >> README.md
 echo -e "\n</td></tr> </table>\n" >> README.md
 sed -i -E -e "s/(\s*)([0-9]{1,5}) (\.\/)(\w*\/)?(\w*\/)?(\w*\/)?(\w*\/)?(.*\.yaml)/\1\2 [\5\6\7\8](\3\4\5\6\7\8)/" -e "s/(\s{2,10})([0-9]{1,5})/| \2 |/" -e "s/\| ([0-9]*) \| total/\| \*\*\1\*\* \| \*\*Total\*\*/" README.md
 ```
-<details><summary> Line 1: echo</summary>
+<details><summary> Line 1: echo »</summary>
 <p>
 
 ```bash
@@ -67,7 +67,7 @@ finds all files in `.` (here)
 </details>
 
 
-<details><summary>Line 3: echo >></summary>
+<details><summary>Line 3: echo »</summary>
 <p>
 
 ### We want two tables, HA and ESPHome, nested inside one bigger table.
@@ -130,7 +130,7 @@ etc...
 </p>
 </details>
 
-<details><summary>Line 5: echo >></summary>
+<details><summary>Line 5: echo »</summary>
 <p>
 
 ```bash
@@ -175,7 +175,7 @@ etc...
 </p>
 </details>
 
-<details><summary>Line 7: echo >></summary>
+<details><summary>Line 7: echo »</summary>
 <p>
 
 ```bash
