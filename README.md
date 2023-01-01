@@ -207,7 +207,8 @@ bruh
 
 # sed
 
-sed enables regex operations on files. Usually sed outputs to stdout, but
+sed enables regex operations on files. That being sed ![image](https://user-images.githubusercontent.com/62850893/210182040-cb5623e9-22ef-48c3-8bf9-557508dfaba7.png)
+usually sed outputs to stdout, but
 
 flag `-i` makes it write to the file it is reading from
 
@@ -298,7 +299,7 @@ translates to:
 
 Replace `(\s{2,10})([0-9]{1,5})` with `| \2 |`
 
-We lose `\1` which are the whitespaces and place pipes around `\2`. Bish bash bosh
+We lose `\1` which is the whitespaces and place pipes around `\2`. Bish bash bosh
 
 Look rn:
 ```
@@ -410,6 +411,8 @@ Find text `| xxxx | total` and put \*\*s around. We need to escape all asterisks
 
 </p>
 </details>
+
+Thank you for coming to my ted talk
 
 </p>
 </details>
