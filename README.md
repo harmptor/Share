@@ -13,10 +13,10 @@ find ./esphome -maxdepth 2 -name '*.yaml' | xargs wc -l | sort -nr >> README.md
 echo -e "\n</td></tr> </table>\n" >> README.md
 sed -i -E -e "s/(\s*)([0-9]{1,5}) (\.\/)(\w*\/)?(\w*\/)?(\w*\/)?(\w*\/)?(.*\.yaml)/\1\2 [\5\6\7\8](\3\4\5\6\7\8)/" -e "s/(\s{2,10})([0-9]{1,5})/| \2 |/" -e "s/\| ([0-9]*) \| total/\| \*\*\1\*\* \| \*\*Total\*\*/" README.md
 ```
-<details><summary>Line 1</summary>
+<details><summary> Line 1: echo</summary>
 <p>
 
-```
+```bash
 echo -ne "# Powl's Home Assistant configuration: \n<p align="right"> $(date +"${1:-%Y.%m.%d %H:%M:%S}") </p>\n\n## Total lines of code: " > README.md 
 ```
 echoes the strin and writes to README.md
@@ -48,7 +48,7 @@ Resulting in:
 </details>
 
 
-<details><summary>Line 2</summary>
+<details><summary>Line 2: ( find . ) → total # lines </summary>
 <p>
 
 ```bash
@@ -68,10 +68,10 @@ finds all files in `.` (here)
 </details>
 
 
-<details><summary>Line 3</summary>
+<details><summary>Line 3: echo</summary>
 <p>
 
-### We want two tables, HA and ESPHome, nested inside a bigger table.
+### We want two tables, HA and ESPHome, nested inside one bigger table.
 Tables in markdown look like this:
 ```
 |  Title1  | Title2 |
@@ -102,14 +102,14 @@ resulting in
 <tr valign="top"><td>
 
 |  #  | HA |
-| --: | -- |
+| --: | -- |  <-- left column is now right aligned
 ```
 </p>
 </details>
 
 
 
-<details><summary>Line 4</summary>
+<details><summary>Line 4: find . </summary>
 <p>
 
 ```bash
@@ -117,7 +117,7 @@ find . -maxdepth 1 -name '*.yaml' | xargs wc -l | sort -nr >> README.md
 ```
 pretty self explanatory, finds files, counts lines, sorts numerically, writes
 
-output looks like this:
+find's normal output looks like this:
 ```
 User@DESKTOP: /home/config $ find . -maxdepth 1 -name '*.yaml' | xargs wc -l | sort -nr
   7934 total
@@ -131,8 +131,9 @@ etc...
 </p>
 </details>
 
-<details><summary>Line 5</summary>
+<details><summary>Line 5: echo</summary>
 <p>
+
 ```bash
 echo -e "\n</td><td>\n\n| # | ESPHome |\n| --: | -- |" >> README.md
 ```
@@ -151,7 +152,7 @@ same shit again, prints
 </details>
 
 
-<details><summary>Line 6</summary>
+<details><summary>Line 6: find ./esphome </summary>
 <p>
 
 ```bash
@@ -175,7 +176,7 @@ etc...
 </p>
 </details>
 
-<details><summary>Line 7</summary>
+<details><summary>Line 7: echo </summary>
 <p>
 
 ```bash
@@ -194,7 +195,7 @@ bruh
 
 
 
-<details><summary>Line 8</summary>
+<details><summary>Line 8: sed</summary>
 <p>
 
 Sed enables regex operations on files. Usually sed outputs to stdout, but
