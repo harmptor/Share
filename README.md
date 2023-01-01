@@ -23,13 +23,14 @@ echoes the strin and writes to README.md
 
 flag `-e` means `\n` is expanded to a newline character instead of being literally printed
 
-flag `-n` means no trailing new line
+flag `-n` means no trailing new line.
+
 resulting in
 ```
-  # Powl's Home Assistant configuration: 
-  <p align="right"> `date +"${1:-%Y.%m.%d %H:%M:%S}"` </p>
+# Powl's Home Assistant configuration: 
+<p align="right"> $(date +"${1:-%Y.%m.%d %H:%M:%S}") </p>
 
-  ## Total lines of code: 
+## Total lines of code: 
 ```
 where `$(date + "")` renders current date in format given by `$1` or the default `%Y.%m.%d %H:%M:%S` if none given. 
 
@@ -49,6 +50,7 @@ Resulting in:
 
 <details><summary>Line 2</summary>
 <p>
+
 ```bash
 ( find . -maxdepth 2 -name '*.yaml' -print0 | xargs -0 cat ) | wc -l >> README.md
 ```
